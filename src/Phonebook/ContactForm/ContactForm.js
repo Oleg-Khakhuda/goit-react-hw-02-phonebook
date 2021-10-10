@@ -1,6 +1,7 @@
 import React from "react";
 import { Component } from "react";
 import { v4 as uuidv4 } from 'uuid';
+import s from './ContactForm.module.css';
 
 
 export default class ContactForm extends Component {
@@ -35,9 +36,10 @@ export default class ContactForm extends Component {
     render() {
         const { handleSubmit, inputNameId, handleChange, inputNumberId } = this
         return (
-            <form onSubmit={handleSubmit}>  
-            <label htmlFor={inputNameId}>Name</label>
+            <form className={s.form} onSubmit={handleSubmit}>  
+            <label className={s.label} htmlFor={inputNameId}>Name</label>
             <input
+                className={s.input}
                 type="text"
                 id={inputNameId}
                 name="name"
@@ -45,9 +47,10 @@ export default class ContactForm extends Component {
                 title="Имя может состоять только из букв, апострофа, тире и пробелов. Например Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan и т. п."
                 required
                 onChange={handleChange}
-                />
-            <label htmlFor={inputNumberId}>Number</label>
+            />
+            <label className={s.label} htmlFor={inputNumberId}>Number</label>
             <input
+                className={s.input}
                 type="tel"
                 id={inputNumberId}
                 name="number"
@@ -56,7 +59,7 @@ export default class ContactForm extends Component {
                 required
                 onChange={handleChange}
             />
-                <button type='submit'>Add contact</button>
+                <button className={s.button} type='submit'>Add contact</button>
             </form>
        ) 
     }

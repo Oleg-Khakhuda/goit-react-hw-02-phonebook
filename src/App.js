@@ -1,6 +1,6 @@
-import ContactForm from "./Phonebook/ContactForm";
-import ContactsList from "./Phonebook/ContactsList";
-import Filter from "./Phonebook/Filter";
+import ContactForm from "./Phonebook/ContactForm/ContactForm";
+import ContactsList from "./Phonebook/ContactsList/ContactsList";
+import Filter from "./Phonebook/Filter/Filter";
 import { Component } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
