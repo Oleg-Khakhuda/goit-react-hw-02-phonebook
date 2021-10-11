@@ -32,6 +32,7 @@ export default class App extends Component {
     };
   }
 
+
   changeFilter  = e => {
     this.setState({ filter: e.target.value });
   };
@@ -49,7 +50,7 @@ export default class App extends Component {
     this.setState(prevState => ({
       contacts: prevState.contacts.filter(contact => contact.id !== e.target.id)
     }))
-   }
+  }
   
   render() {
     const { addNewContact, changeFilter, handleFilter, handleDelete } = this

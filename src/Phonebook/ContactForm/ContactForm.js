@@ -5,16 +5,16 @@ import s from './ContactForm.module.css';
 
 
 export default class ContactForm extends Component {
-    inputNameId = uuidv4();
-    inputNumberId = uuidv4();
-
     state = {
         name: '',
         number: ''
     }
 
+    inputNameId = uuidv4();
+    inputNumberId = uuidv4();
+
     handleChange = e => {
-    const { name, value } = e.target;
+    const { name, value } = e.currentTarget;
     this.setState({
       [name]: value,
     });
@@ -27,20 +27,19 @@ export default class ContactForm extends Component {
     }
 
     resetForm = () => {
-        this.setState({
-            name: '',
-            number: ''
-        });
-    };
+       this.setState({ name: '', number: '' });
+  };
 
     render() {
-        const { handleSubmit, inputNameId, handleChange, inputNumberId } = this
+        const { handleSubmit, inputNameId, handleChange, inputNumberId } = this;
+        const { name, number } = this.state;
         return (
             <form className={s.form} onSubmit={handleSubmit}>  
             <label className={s.label} htmlFor={inputNameId}>Name</label>
             <input
                 className={s.input}
                 type="text"
+                value={name}
                 id={inputNameId}
                 name="name"
                 pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
@@ -52,6 +51,7 @@ export default class ContactForm extends Component {
             <input
                 className={s.input}
                 type="tel"
+                value={number}
                 id={inputNumberId}
                 name="number"
                 pattern="(\+?( |-|\.)?\d{1,2}( |-|\.)?)?(\(?\d{3}\)?|\d{3})( |-|\.)?(\d{3}( |-|\.)?\d{4})"
