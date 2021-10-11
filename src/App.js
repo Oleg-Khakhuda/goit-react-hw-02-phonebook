@@ -25,11 +25,12 @@ export default class App extends Component {
 
     if (this.state.contacts.find(contact => contact.name === name)) {
       alert(`${name} is already in contacts!`);
-    } else {
+    } else if (this.state.contacts.find(contact => contact.number === number)) {
+      alert(`${number} is already in contacts!`);
+    } else
       this.setState(prevState => ({
         contacts: [...prevState.contacts, contact]
       }));
-    };
   }
 
 
